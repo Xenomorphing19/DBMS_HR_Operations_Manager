@@ -1,0 +1,12 @@
+main{
+    margin: 50px auto;
+    text-align: center;
+}
+.heading{
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+.login-buttons{
+    align-items: center;
+}
