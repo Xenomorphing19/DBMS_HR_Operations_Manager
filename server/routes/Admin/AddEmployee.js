@@ -9,10 +9,10 @@ router.get("/", function(req, res){
 router.post("/", function(req, res){
 
     var connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : process.env.DB_PASS,
-    database: process.env.DB_NAME
+        host     : 'localhost',
+        user     : 'root',
+        password : process.env.DB_PASS,
+        database: process.env.DB_NAME
     });
       
     connection.connect(function(err) {
