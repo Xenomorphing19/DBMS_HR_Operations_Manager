@@ -1,0 +1,17 @@
+main{
+    text-align: center;
+}
+.label{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+table{
+    margin: 50px;
+}
+table, th, td{
+    border-collapse: collapse;
+    border: 1px solid #000000;
+}
+th,td{
+    padding: 5px;
+}
