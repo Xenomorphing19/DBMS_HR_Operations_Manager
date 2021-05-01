@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const dotenv = require('dotenv');
-const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
 dotenv.config();
 
@@ -18,6 +17,7 @@ const addEmployee = require("./routes/Admin/AddEmployee");
 const applyForOpp = require("./routes/Applicant/ApplyForOpp");
 const applicantLogin = require("./routes/Applicant/ApplicantLogin");
 const respondInvite = require("./routes/Applicant/RespondInvite");
+const showDepts = require("./routes/Auth/SendDepartments");
 const accFinLogin = require("./routes/Auth/AccFinLogin");
 const HRLogin = require("./routes/Auth/HRLogin");
 const marketingLogin = require("./routes/Auth/MarketingLogin");
