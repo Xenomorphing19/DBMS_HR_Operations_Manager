@@ -28,4 +28,4 @@ router.get("/", function(req, res){
 
 });
 
-module.exports = Router;
+module.exports = router;

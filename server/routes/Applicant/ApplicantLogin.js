@@ -34,8 +34,11 @@ router.post("/", function(req, res){
                 try {
 
                     if(await bcrypt.compare(req.body.pass, user.app_pass)) {
-                        res.send("Success!");
                         console.log("Welcome", user.app_name);
+
+                        const accessToken = jwt.sign(JSON.stringify(user), process.env.ACCESS_TOKEN_SECRET);
+                        res.json({accessToken: accessToken});
+
                     } else {
                         console.log("Wrong user!");
                     }
