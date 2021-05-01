@@ -105,6 +105,6 @@
 --     PRIMARY KEY(admin_id)
 -- );
 
--- ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'any1canSEE!';
+-- ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '<PASSWORD>';
 
 -- FLUSH privileges;
