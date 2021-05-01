@@ -20,7 +20,13 @@ router.get("/", function(req, res){
         connection.query(sql, function(err, result) {
 
             // console.log(result);
-            res.send(result);
+            
+            result.forEach(function(dept){
+                
+                if(dept == req.body.dept) {
+                    res.redirect("/"+dept+"/login");
+                }
+            })
 
         });
     });
