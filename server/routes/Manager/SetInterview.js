@@ -3,6 +3,26 @@ const router = express.Router();
 
 router.get("/", function(req, res){
 
+    var connection = mysql.createConnection({
+        host     : 'localhost',
+        user     : 'root',
+        password : process.env.DB_PASS,
+        database: process.env.DB_NAME
+    });
+      
+    connection.connect(function(err) {
+        if (err) throw err;
+        console.log("Connected!");
+        var query1 = `SELECT * FROM ${req.body.dept}`;
+        connection.query(query1, function (err, result) {
+          if (err) throw err;
+          console.log("This is the", req.body.dept, "Table");
+
+          res.send(results);
+        });
+
+    });
+
 });
 
 router.post("/", function(req, res){

@@ -1,5 +1,5 @@
--- CREATE DATABASE hr_ops_sys;
--- USE hr_ops_sys;
+	-- CREATE DATABASE hr_ops_sys;
+USE hr_ops_sys;
 
 -- CREATE TABLE Departments (
 -- 	dept_id VARCHAR (255) NOT NULL,
@@ -75,6 +75,7 @@
 -- CREATE TABLE Applicants (
 -- 	app_id VARCHAR(255) NOT NULL,
 --     app_name TEXT NOT NULL,
+--     app_pass TEXT NOT NULL,
 --     opportunity_id VARCHAR(255) NOT NULL, -- This references the department ID in the 'Departments' Table.
 --     app_resume BLOB,
 --     app_status TINYTEXT NOT NULL,
@@ -108,3 +109,5 @@
 -- ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'any1canSEE!';
 
 -- FLUSH privileges;
+
+-- INSERT INTO Production VALUES ('p001', 'Naya User', 'secure', 'Team Member', '2000-05-19');

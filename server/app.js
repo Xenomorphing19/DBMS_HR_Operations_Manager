@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const dotenv = require('dotenv');
-var mysql = require('mysql');
+const jwt = require("jsonwebtoken");
+const bodyParser = require("body-parser");
 dotenv.config();
 
 const port = process.env.PORT || 5000;
@@ -10,30 +11,7 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
-
-// var connection = mysql.createConnection({
-//   host     : 'localhost',
-//   user     : 'root',
-//   password : process.env.DB_PASS,
-// });
-
-// connection.connect(function(err){
-//     if (err) {
-//         throw err;
-//     } else {
-//         console.log("MySQL Connected!");
-//     }
-// });
-
-// var id = "id1001";
-// var name = "ani"
-
-// connection.query(`INSERT INTO applicant (id, name) VALUES ('${id}', '${name}')`, function (error, results, fields) {
-//   if (error) throw error;
-//   console.log(results);
-// });
-
-// connection.end();
+app.use(bodyParser.json());
 
 const addEmployee = require("./routes/Admin/AddEmployee");
 const applyForOpp = require("./routes/Applicant/ApplyForOpp");
@@ -43,6 +21,7 @@ const sendInvite = require("./routes/HR/SendInvitation");
 const setApplicant = require("./routes/HR/SetApplicant");
 const resultRoute = require("./routes/Interview/InterviewResult");
 const setInterview = require("./routes/Manager/SetInterview");
+const viewApplicants = require("./routes/Manager/ViewApplicants");
 
 /* General Routes */
 
@@ -69,6 +48,7 @@ app.use("/interview", resultRoute);
 /* Routes for Manager */
 
 app.use("/manager/set", setInterview);
+app.use("/manager/view", viewApplicants);
 
 app.listen(port, function(){
 

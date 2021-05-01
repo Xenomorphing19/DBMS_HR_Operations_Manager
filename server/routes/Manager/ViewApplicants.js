@@ -22,7 +22,7 @@ router.post("/", function(req, res){
           if (err) throw err;
           console.log("1 record inserted");
 
-          res.send(result);
+          res.json(result);
         });
     });
 });
