@@ -106,8 +106,6 @@ USE hr_ops_sys;
 --     PRIMARY KEY(admin_id)
 -- );
 
--- ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'any1canSEE!';
+-- ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '<PASSWORD>';
 
 -- FLUSH privileges;
-
--- INSERT INTO Production VALUES ('p001', 'Naya User', 'secure', 'Team Member', '2000-05-19');
