@@ -21,7 +21,7 @@ router.post("/", function(req, res){
         if (err) throw err;
         console.log("Connected!")
     
-        var sql = "SELECT * FROM Production WHERE ?";
+        var sql = "SELECT * FROM Human_Resources WHERE ?";
         var value = {
             "emp_name": req.body.name
         }

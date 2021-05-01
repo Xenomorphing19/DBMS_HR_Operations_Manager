@@ -21,9 +21,9 @@ router.post("/", function(req, res){
         if (err) throw err;
         console.log("Connected!")
     
-        var sql = "SELECT * FROM Marketing WHERE ?";
+        var sql = "SELECT * FROM Administrators WHERE ?";
         var value = {
-            "emp_name": req.body.name
+            "admin_name": req.body.name
         }
         connection.query(sql, value, function(err, result) {
 
@@ -33,9 +33,9 @@ router.post("/", function(req, res){
 
                 try {
 
-                    if(await bcrypt.compare(req.body.pass, user.emp_password)) {
+                    if(await bcrypt.compare(req.body.pass, user.admin_password)) {
                         res.send("Success!");
-                        console.log("Welcome", user.emp_name);
+                        console.log("Welcome", user.admin_name);
                     } else {
                         console.log("Wrong user!");
                     }
