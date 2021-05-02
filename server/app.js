@@ -3,13 +3,20 @@ const app = express();
 const cors = require('cors');
 const dotenv = require('dotenv');
 const bodyParser = require("body-parser");
+const expbs = require("express-handlebars");
 dotenv.config();
 
 const port = process.env.PORT || 5000;
 
+app.engine('handlebars', expbs({
+    defaultLayout: null,
+}));
+app.set('view engine', 'handlebars');
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
+app.use(express.static('public'));
 app.use(bodyParser.json());
 
 const adminLogin = require("./routes/Admin/AdminLogin");
@@ -66,6 +73,10 @@ app.use("/interview", resultRoute);
 
 app.use("/manager/set", setInterview);
 app.use("/manager/view", viewApplicants);
+
+app.get("/", function(req, res){
+    res.render("index");
+});
 
 app.listen(port, function(){
 

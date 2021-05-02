@@ -6,6 +6,9 @@ const bcrypt = require("bcrypt");
 
 router.get("/", function(req, res){
 
+    console.log("You made it this far!");
+    res.render("applicant/applicant");
+
 });
 
 router.post("/", function(req, res){
@@ -27,7 +30,7 @@ router.post("/", function(req, res){
         }
         connection.query(sql, value, function(err, result) {
 
-            // console.log(result);
+            console.log(result);
 
             result.forEach(async function(user){
 
