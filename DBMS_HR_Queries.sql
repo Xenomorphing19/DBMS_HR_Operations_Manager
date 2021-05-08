@@ -76,6 +76,7 @@ CREATE TABLE Applicants (
 	app_id VARCHAR(255) NOT NULL,
     app_name TEXT NOT NULL,
     app_pass TEXT NOT NULL,
+    app_email TEXT NOT NULL,
     opportunity_id VARCHAR(255) NOT NULL, -- This references the department ID in the 'Departments' Table.
     app_resume BLOB,
     app_status TINYTEXT NOT NULL,

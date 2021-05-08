@@ -5,7 +5,7 @@ const mysql = require("mysql");
 const bcrypt = require("bcrypt");
 
 router.get("/", function(req, res){
-
+    res.render("./HR/HR-head");
 });
 
 router.post("/", function(req, res){
