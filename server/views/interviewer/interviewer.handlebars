@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <link rel="stylesheet" href="interviewer.css">
+  <link rel="stylesheet" href="../../public/css/interviewer.css">
   <title>Interviewer Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
@@ -26,6 +26,16 @@
           </label>
         <input id="user-password" class="form-content" type="password" name="password" required />
         <div class="form-border"></div>
+        
+        <label for="departments" style="padding-top:13px">Department:</label>
+
+        <select name="departments" id="departments" style="margin-top:13px">
+          <option value="volvo">Finance</option>
+          <option value="saab">Marketing</option>
+          <option value="mercedes">R&D</option>
+          <option value="audi">Sales</option>
+          <option value="audi">Quality</option>
+        </select> 
         <input id="submit-btn" type="submit" name="submit" value="LOGIN" />
       </form>
     </div>
