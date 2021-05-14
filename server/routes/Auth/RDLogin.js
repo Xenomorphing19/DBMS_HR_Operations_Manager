@@ -5,6 +5,7 @@ const mysql = require("mysql");
 const bcrypt = require("bcrypt");
 
 router.get("/", function(req, res){
+    res.render('interviewer/interviewer')
 
 });
 
