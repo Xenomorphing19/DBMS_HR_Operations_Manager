@@ -4,6 +4,8 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const bodyParser = require("body-parser");
 const expbs = require("express-handlebars");
+const mongoose = require("mongoose");
+const session = require("express-session");
 dotenv.config();
 
 const port = process.env.PORT || 5000;
@@ -19,60 +21,48 @@ app.use(express.urlencoded({extended : false}));
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
-const adminLogin = require("./routes/Admin/AdminLogin");
-const addEmployee = require("./routes/Admin/AddEmployee");
-const applyForOpp = require("./routes/Applicant/ApplyForOpp");
-const applicantLogin = require("./routes/Applicant/ApplicantLogin");
-const respondInvite = require("./routes/Applicant/RespondInvite");
-const showDepts = require("./routes/Auth/SendDepartments");
-const accFinLogin = require("./routes/Auth/AccFinLogin");
-const HRLogin = require("./routes/Auth/HRLogin");
-const marketingLogin = require("./routes/Auth/MarketingLogin");
-const productionLogin = require("./routes/Auth/ProductionLogin");
-const QALogin = require("./routes/Auth/QALogin");
-const RDLogin = require("./routes/Auth/RDLogin");
-const salesLogin = require("./routes/Auth/SalesLogin");
-const sendInvite = require("./routes/HR/SendInvitation");
-const setApplicant = require("./routes/HR/SetApplicant");
-const resultRoute = require("./routes/Interview/InterviewResult");
-const setInterview = require("./routes/Manager/SetInterview");
-const viewApplicants = require("./routes/Manager/ViewApplicants");
+/* ------------------Set up Session-------------- */
 
-/* Login Routes */
+app.use(session({
+    secret: "AMS app for SOE project.",
+    resave: false,
+    saveUninitialized: true
+}));
+  
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.use("/login", showDepts);
-app.use("/login/accfin", accFinLogin);
-app.use("/login/HRLogin", HRLogin);
-app.use("/login/marketing", marketingLogin);
-app.use("/login/production", productionLogin);
-app.use("/login/qa", QALogin);
-app.use("/login/rd", RDLogin);
-app.use("/login/sales", salesLogin);
+/* ------------------Setup Complete--------------- */
 
-/* Routes for Administrator */
+/* ------------------Set up MongoDB------------- */
 
-app.use("/admin/login", adminLogin);
-app.use("/admin/add", addEmployee);
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true, useUnifiedTopology: true});
 
-/* Routes for Applicant */
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("Connected to your local MongoDB!");
+});
 
-app.use("/applicant/apply", applyForOpp);
-app.use("/applicant/login", applicantLogin);
-app.use("/applicant/respond", respondInvite);
+/* -------------------Set up Complete ----------- */
 
-/* Routes for HR */
+/* ---------------Serializing User ------------- */
 
-app.use("/hr/invite", sendInvite);
-app.use("/hr/applicants", setApplicant);
+const User = require("./models/user");
+passport.use(User.createStrategy());
 
-/* Routes for Interview */
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
 
-app.use("/interview", resultRoute);
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
 
-/* Routes for Manager */
-
-app.use("/manager/set", setInterview);
-app.use("/manager/view", viewApplicants);
+/* ----------------- Serialization Complete -------- */
 
 app.get("/", function(req, res){
     res.render("index");
@@ -80,6 +70,6 @@ app.get("/", function(req, res){
 
 app.listen(port, function(){
 
-    console.log("Server started on port ", port);
+    console.log("Server started on port", port);
 });
 
