@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>HR Login</title>
-  <link rel="stylesheet" href="../css/HR-head.css">
+  <title>Employee Login</title>
+  <link rel="stylesheet" href="../css/employee.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
@@ -13,7 +13,7 @@
   <div id="card">
     <div id="card-content">
       <div id="card-title">
-        <h2>HR LOGIN</h2>
+        <h2>EMPLOYEE LOGIN</h2>
         <div class="underline-title"></div>
       </div>
       <form method="post" class="form">
@@ -26,6 +26,15 @@
           </label>
         <input id="user-password" class="form-content" type="password" name="password" required />
         <div class="form-border"></div>
+        <label for="departments" style="padding-top:13px">Department:</label>
+
+            <select name="departments" id="departments" style="margin-top:13px">
+              <option value="volvo">Finance</option>
+              <option value="saab">Marketing</option>
+              <option value="mercedes">R&D</option>
+              <option value="audi">Sales</option>
+              <option value="maruti">Quality</option>
+            </select> 
         <input id="submit-btn" type="submit" name="submit" value="LOGIN" />
       </form>
     </div>
