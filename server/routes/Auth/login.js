@@ -3,8 +3,8 @@ const passport = require("passport");
 const User = require("../../models/user");
 const router = express.Router();
 
-router.get("/", (res, res) => {
-    res.render("");
+router.get("/", (req, res) => {
+    res.render("index");
 });
 
 router.post("/", function(req, res){

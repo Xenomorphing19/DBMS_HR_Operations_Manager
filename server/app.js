@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
-const cors = require('cors');
 const dotenv = require('dotenv');
 const bodyParser = require("body-parser");
 const expbs = require("express-handlebars");
 const mongoose = require("mongoose");
 const session = require("express-session");
+const passport = require("passport");
 dotenv.config();
 
 const port = process.env.PORT || 5000;
@@ -15,7 +15,6 @@ app.engine('handlebars', expbs({
 }));
 app.set('view engine', 'handlebars');
 
-app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
 app.use(express.static('public'));
@@ -36,7 +35,6 @@ app.use(passport.session());
 
 /* ------------------Set up MongoDB------------- */
 
-const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true, useUnifiedTopology: true});
 
 const db = mongoose.connection;
@@ -63,6 +61,11 @@ passport.deserializeUser(function(id, done) {
 });
 
 /* ----------------- Serialization Complete -------- */
+
+const loginRoute = require("./routes/Auth/login");
+
+
+app.use("/login", loginRoute);
 
 app.get("/", function(req, res){
     res.render("index");
