@@ -16,27 +16,16 @@ a {
     margin-top: 3px;
     text-align: right;
   }
-  #first-row{
-    display: flex;
-  }
-  #divider{
-    height: 500px;
-    width: 1px;
-    background-color: #000000;
-    margin-top: 40px;
-  }
   #card {
     background: #fbfbfb;
     border-radius: 8px;
     box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
-    height: 620px;
+    height: 500px;
     margin: 6rem auto 8.1rem auto;
-    width: 700px;
+    width: 1000px;
   }
   #card-content {
     padding: 12px 44px;
-    display: flex;
-    justify-content: center;
   }
   #card-title {
     font-family: "Raleway Thin", sans-serif;
@@ -70,20 +59,22 @@ a {
     box-shadow: 0px 1px 18px #ca8a8b;
   }
   .form {
-    align-items: left;
+    align-items: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
   }
   .form-border {
     background: -webkit-linear-gradient(right, #e2bcb7, #ca8a8b);
     height: 1px;
-    width: 100%;
+    width: 45%;
   }
   .form-content {
     background: #fbfbfb;
     border: none;
     outline: none;
     padding-top: 14px;
+    width: 45%;
   }
   .underline-title {
     background: -webkit-linear-gradient(right, #e2bcb7, #ca8a8b);
@@ -91,4 +82,27 @@ a {
     margin: -1.1rem auto 0 auto;
     width: 89px;
   }
-  
+
+  table{
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    overflow: hidden;
+  }
+  .table-header{
+      background-color: #ca8a8b;
+  }
+  .table-row{
+      margin-top: 5px;
+      border-bottom: 0.25px;
+  }
+  #accept{
+      border-radius: 100%;
+      color:#ffffff;
+      background-color: green;
+  }
+  #reject{
+    border-radius: 100%;
+    color:#ffffff;
+    background-color: red;
+  }
