@@ -21,6 +21,5 @@ intview.plugin(passportLocalMongoose);
 intview.plugin(findOrCreate);
 
 const Interview = new mongoose.model("Interview", intview);
-passport.use(User.createStrategy());
 
 module.exports = Interview;

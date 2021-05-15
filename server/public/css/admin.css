@@ -80,4 +80,8 @@ a {
     margin: -1.1rem auto 0 auto;
     width: 89px;
   }
+
+  #user-role {
+    visibility: hidden;
+  }
   

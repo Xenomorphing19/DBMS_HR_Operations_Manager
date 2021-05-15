@@ -35,7 +35,7 @@ app.use(passport.session());
 
 /* ------------------Set up MongoDB------------- */
 
-mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost/hropsDB', {useNewUrlParser: true, useUnifiedTopology: true});
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -67,7 +67,10 @@ const addDepart = require("./routes/Admin/addDepart");
 const addEmployee = require("./routes/Admin/addEmployee");
 const applyRoute = require("./routes/Applicant/applyforopp");
 const HRroute = require("./routes/HR/viewResume");
-const interviewRoute = require("./routes/Manager/setInter");
+const setInterRoute = require("./routes/Manager/setInter");
+const interviewerLogin = require("./routes/Interviewer/interLogin");
+const adminLogin = require("./routes/Admin/adminLogin");
+const hiddenRegister = require("./routes/Auth/register");
 
 /* Routes for all employees */
 
@@ -75,6 +78,8 @@ app.use("/login", loginRoute);
 
 /* Routes for Admins */
 
+app.use("/admin/login", adminLogin);
+app.use("/auth/register", hiddenRegister);
 app.use("/admin/departments", addDepart);
 app.use("/admin/employees", addEmployee);
 
@@ -88,7 +93,11 @@ app.use("/hr/home", HRroute);
 
 /* Routes for Managers */
 
-app.use("/manager/home", interviewRoute);
+app.use("/manager/home", setInterRoute);
+
+/* Routes for Interviewers */
+
+app.use("/interview/login", interviewerLogin);
 
 app.get("/", function(req, res){
     res.render("index");

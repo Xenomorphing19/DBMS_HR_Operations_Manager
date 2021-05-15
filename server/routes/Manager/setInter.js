@@ -33,6 +33,14 @@ router.post("/", function(req, res){
                 console.log(err);
                 res.sendStatus(500);
             } else if (found) {
+
+                found.role = "Interviewer";
+
+                found.save(function(err){
+                    if(err){
+                        console.log(err);
+                    }
+                });
                 
                 Interview.findOne({_id: req.body.interview}, function(err, inter){
                     if(err){

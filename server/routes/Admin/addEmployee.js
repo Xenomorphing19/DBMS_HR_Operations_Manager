@@ -12,7 +12,7 @@ router.get("/", function(req, res){
                 res.sendStatus(500);
             } else if (depts) {
     
-                res.render("admin/adminHome");
+                res.render("admin");
             }
         });
     } else {

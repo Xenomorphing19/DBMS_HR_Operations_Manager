@@ -4,7 +4,7 @@ const User = require("../../models/user");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-    res.render("employee/Employee");
+    res.render("admin/admin");
 });
 
 router.post("/", function(req, res){
@@ -23,7 +23,7 @@ router.post("/", function(req, res){
             passport.authenticate("local")(req, res, () => {
 
                 console.log("Successfully logged in as "+req.user.role);
-                res.send(req.user);
+                res.render("admin/adminHome");
 
             });
         }

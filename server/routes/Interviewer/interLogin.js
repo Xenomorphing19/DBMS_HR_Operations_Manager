@@ -4,7 +4,7 @@ const User = require("../../models/user");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-    res.render("employee/Employee");
+    res.render("interviewer/interviewer");
 });
 
 router.post("/", function(req, res){
@@ -22,8 +22,9 @@ router.post("/", function(req, res){
         } else {
             passport.authenticate("local")(req, res, () => {
 
-                console.log("Successfully logged in as "+req.user.role);
-                res.send(req.user);
+                if(user.role != "Interviewer") {
+                    res.redirect("/");
+                }
 
             });
         }

@@ -15,6 +15,5 @@ deptSchema.plugin(passportLocalMongoose);
 deptSchema.plugin(findOrCreate);
 
 const Department = new mongoose.model("Department", deptSchema);
-passport.use(User.createStrategy());
 
 module.exports = Department;
