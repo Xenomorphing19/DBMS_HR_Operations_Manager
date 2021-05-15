@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <link rel="stylesheet" href="../css/admin-home.css">
+  <link rel="stylesheet" href="../../public/css/admin-home.css">
   <title>Admin Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
@@ -12,30 +12,22 @@
 <body>
   <div id="card">
     <div id="card-content">
-      <div id="card-title">
-        <h3>ADD EMPLOYEE</h3>
-        <div class="underline-title"></div>
+      <div class="form">
+        <a href="applicants/apply">
+            <input id="submit-btn" type="submit" name="submit" value="Add Employee"/>
+        </a>
+        <a href="admin/login">
+          <input id="submit-btn" type="submit" name="submit" value="View All Employees"/>
+      </a>
+        <a href="login">
+            <input id="submit-btn" type="submit" name="submit" value="Add Department"/>
+        </a>
+        <a href="interview/login">
+            <input id="submit-btn" type="submit" name="submit" value="View All Departments"/>
+        </a>
       </div>
-      <form method="post" class="form">
-
-        <label for="emp-id" style="padding-top:13px">&nbsp;Employee ID</label>
-            <input id="emp-id" class="form-content" type="text" name="id" required />
-            <div class="form-border"></div>
-            <label for="emp-name" style="padding-top:13px">&nbsp;Name</label>
-            <input id="emp-name" class="form-content" type="text" name="name" autocomplete="on" required />
-            <div class="form-border"></div>
-            <label for="emp-email" style="padding-top:22px">&nbsp;Email</label>
-            <input id="emp-email" class="form-content" type="email" name="email" required />
-            <div class="form-border"></div>
-            <label for="emp-pass" style="padding-top:22px">&nbsp;password</label>
-            <input id="emp-pass" class="form-content" type="password" name="password" required />
-            <div class="form-border"></div>
-            <label for="emp-dob" style="padding-top:22px">&nbsp;Date of Birth</label>
-            <input id="emp-dob" class="form-content" type="date" name="dob" required />
-            <div class="form-border"></div>
-        <input id="submit-btn" type="submit" name="submit" value="Submit Details" />
-      </form>
-    </div>
+      </div>
+  </div>
   </div>
 </body>
 
