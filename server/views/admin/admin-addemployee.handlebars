@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="../../public/css/admin-addemployee.css">
+  <title>Admin Home- Add Employee</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  <div id="card">
+    <div id="card-content">
+        <div id="first-row">
+          <div>
+          <div id="card-title">
+            <h3>ADD EMPLOYEE</h3>
+            <div class="underline-title"></div>
+          </div>
+          <form method="post" class="form">
+            <label for="emp-id" style="padding-top:13px">&nbsp;Employee ID</label>
+                <input id="emp-id" class="form-content" type="text" name="id" required />
+                <div class="form-border"></div>
+                <label for="emp-name" style="padding-top:13px">&nbsp;Name</label>
+                <input id="emp-name" class="form-content" type="text" name="name" autocomplete="on" required />
+                <div class="form-border"></div>
+                <label for="emp-email" style="padding-top:22px">&nbsp;Email</label>
+                <input id="emp-email" class="form-content" type="email" name="email" required />
+                <div class="form-border"></div>
+                <label for="emp-pass" style="padding-top:22px">&nbsp;password</label>
+                <input id="emp-pass" class="form-content" type="password" name="password" required />
+                <div class="form-border"></div>
+                <label for="emp-dob" style="padding-top:22px">&nbsp;Date of Birth</label>
+                <input id="emp-dob" class="form-content" type="date" name="dob" required />
+                <div class="form-border"></div>
+                <label for="departments" style="padding-top:13px">Department:</label>
+                <select name="departments" id="departments" style="margin-top:13px">
+                  <option value="volvo">Finance</option>
+                  <option value="saab">Marketing</option>
+                  <option value="mercedes">R&D</option>
+                  <option value="audi">Sales</option>
+                  <option value="maruti">Quality</option>
+                </select> 
+            <input id="submit-btn" type="submit" name="submit" value="Add Employee" />
+          </form>
+        </div>
+      </div>
+  </div>
+  </div>
+</body>
+
+</html>

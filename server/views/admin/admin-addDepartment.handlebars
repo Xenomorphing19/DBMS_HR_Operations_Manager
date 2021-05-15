@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="../../public/css/admin-addDepartment.css">
+  <title>Admin Home- Add Department</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  <div id="card">
+    <div id="card-content">
+        <div id="first-row">
+        <div>
+          <div id="card-title">
+            <h3>ADD DEPARTMENT</h3>
+            <div class="underline-title"></div>
+          </div>
+          <form method="post" class="form">
+            <label for="emp-id" style="padding-top:13px">&nbsp;Department ID</label>
+                <input id="emp-id" class="form-content" type="text" name="id" required />
+                <div class="form-border"></div>
+                <label for="emp-name" style="padding-top:13px">&nbsp;Department Name</label>
+                <input id="emp-name" class="form-content" type="text" name="name" autocomplete="on" required />
+                <div class="form-border"></div>
+                <label for="departments" style="padding-top:13px">Manager:</label>
+                <select name="departments" id="departments" style="margin-top:13px">
+                  <option value="volvo">Employee 1</option>
+                  <option value="saab">Employee 2</option>
+                  <option value="mercedes">Employee 3</option>
+                  <option value="audi">Employee 4</option>
+                  <option value="maruti">Employee 5</option>
+                </select> 
+            <input id="submit-btn" type="submit" name="submit" value="Add Department" />
+          </form>
+  </div>
+  </div>
+</body>
+
+</html>
